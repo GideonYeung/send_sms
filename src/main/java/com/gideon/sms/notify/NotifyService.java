@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 商城通知服务类
+ * 短信通知服务类
  *
  * @author GideonYeung
  */
