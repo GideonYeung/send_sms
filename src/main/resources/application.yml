@@ -1,0 +1,48 @@
+#开发环境配置
+server:
+  #服务器的HTTP端口，默认为80
+  port: 80
+  servlet:
+    #应用的访问路径
+    context-path: /
+  tomcat:
+    #tomcat的URI编码
+    uri-encoding: UTF-8
+    #tomcat最大线程数，默认为200
+    max-threads: 800
+    #Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 30
+
+#通知相关配置
+notify:
+  #短消息模版通知配置
+  #短信息用于通知客户，例如发货短信通知，注意配置格式；template-name，template-templateId 请参考 NotifyType 枚举值
+  sms:
+    enable: true
+    #如果是腾讯云短信，则设置active的值tencent
+    #如果是阿里云短信，则设置active的值aliyun
+    active: aliyun
+    sign: xxxx #公司名称
+    template: #对应NotifyType枚举类可以无限叠加
+      - name: paySucceed
+        templateId: 156349
+      - name: captcha
+        templateId: 185555883
+      - name: ship
+        templateId: 158002
+      - name: refund
+        templateId: 159447
+    tencent:
+      appid: 111111111
+      appkey: xxxxxxxxxxxxxx
+    aliyun:
+      regionId: cn-xxx #城市
+      accessKeyId: xxxxxxxxxxxxxx
+      accessKeySecret: xxxxxxxxxxxxxx
+
+
+#日志配置
+logging:
+  level:
+    com.gideon: debug
+    org.springframework: warn
